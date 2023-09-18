@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Helpers\Helpers;
 
-class Adresses extends Model
+class Adress extends Model
 {
     use HasFactory;
 
@@ -27,7 +27,7 @@ class Adresses extends Model
 
     public function neighborhoods()
     {
-        return $this->belongsTo(Neighborhoods::class);
+        return $this->belongsTo(Neighborhood::class);
     }
 
 
@@ -66,5 +66,4 @@ class Adresses extends Model
     {
         $this->attributes['cities'] = trim(strtoupper($value));
     }
-
 }
