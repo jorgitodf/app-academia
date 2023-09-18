@@ -9,16 +9,22 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->increments('id');
+            $table->string('name', 120);
+			$table->date('birth_date');
+			$table->string('profession', 120);
+            $table->enum('gender', ['Masculino', 'Feminino']);
+			$table->string('photo', 255);
+            $table->string('email', 120);
             $table->string('password');
+            $table->unsignedInteger('type_user_id');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('type_user_id', 'fk_type_users_users')->references('id')->on('type_users')->onUpdate('cascade');
         });
     }
 
