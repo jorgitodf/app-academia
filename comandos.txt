@@ -1,19 +1,19 @@
 Criação de Controller
 
-dentro do container 
+dentro do container
 docker-compose exec app bash
 php artisan make:controller Admin\\NomeController
 
 Migrations
 
-dentro do container 
+dentro do container
 docker-compose exec app bash
 php artisan make:migration
 php artisan migrate
 
 Criação de Models
 
-dentro do container 
+dentro do container
 docker-compose exec app bash
 php artisan make:model TypeUser -mc
 
@@ -22,6 +22,9 @@ php artisan migrate:fresh
 php artisan db:seed --class=StatesTableSeeder
 php artisan db:seed --class=NeighborhoodsTableSeeder
 php artisan db:seed --force
+
+
+php artisan make:view tipo-usuario/index
 
 
 
