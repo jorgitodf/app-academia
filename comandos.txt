@@ -18,3 +18,10 @@ docker-compose exec app bash
 php artisan make:model TypeUser -mc
 
 
+php artisan migrate:fresh
+php artisan db:seed --class=StatesTableSeeder
+php artisan db:seed --class=NeighborhoodsTableSeeder
+php artisan db:seed --force
+
+
+
