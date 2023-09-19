@@ -24,7 +24,7 @@ php artisan db:seed --class=StatesTableSeeder
 php artisan db:seed --class=NeighborhoodsTableSeeder
 php artisan db:seed --force
 
+php artisan make:controller UserController --resource
 
 php artisan make:view tipo-usuario/index
-
 
