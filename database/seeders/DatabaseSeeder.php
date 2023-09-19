@@ -17,7 +17,9 @@ class DatabaseSeeder extends Seeder
             StatesTableSeeder::class,
             CitiesTableSeeder::class,
             NeighborhoodsTableSeeder::class,
-            PublicPlacesTableSeeder::class
+            PublicPlacesTableSeeder::class,
+            GroupExercisesTableSeeder::class,
+            ExercisesTableSeeder::class
         ]);
     }
 }

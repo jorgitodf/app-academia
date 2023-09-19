@@ -17,6 +17,7 @@ dentro do container
 docker-compose exec app bash
 php artisan make:model TypeUser -mc
 
+php artisan make:seeder ExercisesTableSeeder
 
 php artisan migrate:fresh
 php artisan db:seed --class=StatesTableSeeder
@@ -25,6 +26,5 @@ php artisan db:seed --force
 
 
 php artisan make:view tipo-usuario/index
-
 
 
