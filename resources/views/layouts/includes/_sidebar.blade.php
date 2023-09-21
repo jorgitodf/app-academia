@@ -12,37 +12,53 @@
             <hr class="my-2 text-gray-600">
 
             <div>
-                <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
+                <div
+                    class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
                     <i class="bi bi-journal-check"></i>
-                    <span class="text-[15px] ml-4 text-gray-200"><a href="{{ route('home') }}">Visão Geral</a></li></span>
+                    <span class="text-[15px] ml-4 text-gray-200"><a href="{{ route('home') }}">Visão Geral</a></li>
+                        </span>
                 </div>
 
-                <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
+                <div
+                    class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
                     <i class="bi bi-people-fill"></i>
                     <span class="text-[15px] ml-4 text-gray-200"><a href="{{ route('user') }}">Clientes</a></li></span>
                 </div>
 
-                <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
+                <div
+                    class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
                     <i class="bi bi-newspaper"></i>
                     <span class="text-[15px] ml-4 text-gray-200">Planos</span>
                 </div>
 
-                <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
+                <div
+                    class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
                     <i class="bi bi-coin"></i>
                     <span class="text-[15px] ml-4 text-gray-200">Financeiro</span>
                 </div>
 
-                <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
+                <div
+                    class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
                     <i class="bi bi-trophy"></i>
                     <span class="text-[15px] ml-4 text-gray-200">Treinos</span>
                 </div>
 
-                <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
+                <div
+                    class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
                     <i class="bi bi-gear"></i>
-                    <span class="text-[15px] ml-4 text-gray-200">Configurações</span>
+                    <div class="flex justify-between w-full items-center" onclick="dropDown()">
+                        <span class="text-[15px] ml-4 text-gray-200">Configurações</span>
+                        <span class="text-sm rotate-180" id="arrow">
+                            <i class="bi bi-chevron-down"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class=" leading-7 text-left text-sm font-thin mt-2 w-4/5 mx-auto" id="submenu">
+                    <span class="cursor-pointer p-2 hover:bg-gray-700 rounded-md mt-1"><a href="{{ route('type-user') }}">Tipo de Usuário</a></span>
                 </div>
 
-                <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
+                <div
+                    class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
                     <i class="bi bi-box-arrow-in-right"></i>
                     <span class="text-[15px] ml-4 text-gray-200">Logout</span>
                 </div>
@@ -51,12 +67,12 @@
     </div>
     <script>
         function dropDown() {
-          document.querySelector('#submenu').classList.toggle('hidden')
-          document.querySelector('#arrow').classList.toggle('rotate-0')
+            document.querySelector('#submenu').classList.toggle('hidden')
+            document.querySelector('#arrow').classList.toggle('rotate-0')
         }
         dropDown()
 
         function Openbar() {
-          document.querySelector('.sidebar').classList.toggle('left-[-300px]')
+            document.querySelector('.sidebar').classList.toggle('left-[-300px]')
         }
     </script>
