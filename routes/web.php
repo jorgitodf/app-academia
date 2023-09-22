@@ -10,5 +10,10 @@ use Illuminate\Support\Facades\Route;
 }); */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
 Route::get('/tipo-usuario', [TypeUserController::class, 'index'])->name('type-user');
 Route::get('/usuario', [UserController::class, 'index'])->name('user');
+
+Route::post('/tipo-usuario/create', [TypeUserController::class, 'create'])->name('type-user.create');
+Route::get('/tipo-usuario/edit/{id}', [TypeUserController::class, 'edit'])->name('type-user.edit');
+Route::put('/tipo-usuario/update', [TypeUserController::class, 'update'])->name('type-user.update');
