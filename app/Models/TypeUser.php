@@ -18,4 +18,10 @@ class TypeUser extends Model
     {
         return $this->hasMany(User::class);
     }
+
+    /* Mutators */
+    public function setTypeAttribute($value)
+    {
+        $this->attributes['type'] = trim(mb_convert_case($value, MB_CASE_TITLE, "UTF-8"));
+    }
 }

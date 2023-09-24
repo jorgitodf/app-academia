@@ -21,9 +21,21 @@ class TypeUserController extends Controller
         return view('tipo-usuario.index', compact('type_users'));
     }
 
-    public function create(Request $request)
+    public function create()
     {
-        dd($request->all());
+        $legend = "Novo Tipo de Usuário";
+        return view('tipo-usuario.create', compact('legend'));
+    }
+
+    public function store(Request $request)
+    {
+        $dados = $request->all();
+
+        if (count($this->model::where('type', $dados['type'])->get()) == 0) {
+            $this->model::create($dados);
+        }
+
+        return redirect('/tipo-usuario');
     }
 
     public function edit($id)
@@ -35,6 +47,9 @@ class TypeUserController extends Controller
 
     public function update(Request $request)
     {
-        dd($request->all());
+        $dados = $request->all();
+        $this->model::find($dados['id_type_user'])->update($dados);
+
+        return redirect('/tipo-usuario');
     }
 }
