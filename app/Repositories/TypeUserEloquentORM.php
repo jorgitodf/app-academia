@@ -55,4 +55,17 @@ class TypeUserEloquentORM implements TypeUserRepositoryInterface
 
         return (object) $type_user->toArray();
     }
+
+    public function paginate(int $page = 1, int $totalPerPage = 4, string $filter = null): PaginationInterface
+    {
+        $result =  $this->model
+                        ->where(function($query) use ($filter) {
+                            if ($filter) {
+                                $query->where('type_user', $filter);
+                            }
+                        })
+                        ->paginate($totalPerPage, ['*'], 'page');
+
+        return new PaginationPresenter($result);
+    }
 }

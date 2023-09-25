@@ -6,7 +6,7 @@ use App\DTO\CreateTypeUserDTO;
 use App\DTO\UpdateTypeUserDTO;
 use App\Http\Requests\StoreUpdateTypeUser;
 use App\Services\TypeUserService;
-
+use Illuminate\Http\Request;
 
 class TypeUserController extends Controller
 {
@@ -15,10 +15,18 @@ class TypeUserController extends Controller
     public function __construct(protected TypeUserService $type_user)
     {}
 
-    public function index()
+    public function index(Request $request)
     {
-        $type_users = $this->type_user->getAll();
-        return view('tipo-usuario.index', compact('type_users'));
+        //$type_users = $this->type_user->getAll();
+        $type_users = $this->type_user->paginate(
+            page: $request->get('page', 1),
+            totalPerPage: $request->get('per_page', 3),
+            filter: $request->filter,
+        );
+
+        $filters = ['filter' => $request->get('filter', '')];
+
+        return view('tipo-usuario.index', compact('type_users', 'filters'));
     }
 
     public function create()

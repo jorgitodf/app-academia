@@ -12,4 +12,5 @@ interface TypeUserRepositoryInterface
     public function findOne(int $id): stdClass|null;
     public function create(CreateTypeUserDTO $dto): stdClass;
     public function update(UpdateTypeUserDTO $dto): stdClass|null;
+    public function paginate(int $page = 1, int $totalPerPage = 4, string $filter = null): PaginationInterface;
 }
