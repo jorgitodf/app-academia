@@ -15,7 +15,7 @@
             <dl class="divide-y divide-gray-100">
                 @foreach($type_users as $type_user)
                     <div class="px-4 py-6 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-0">
-                        <dt class="text-sm font-medium leading-6 text-gray-900">{{ $type_user->type }}</dt>
+                        <dt class="text-sm font-medium leading-6 text-gray-900">{{ $type_user['type'] }}</dt>
                         <dd class="text-sm font-medium leading-6 text-gray-900">
                             <button type="button"
                                 class="inline-flex rounded-full hover:rounded-lg items-center rounded-md bg-blue px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
@@ -24,7 +24,7 @@
                                         <path
                                             d="M2.695 14.763l-1.262 3.154a.5.5 0 00.65.65l3.155-1.262a4 4 0 001.343-.885L17.5 5.5a2.121 2.121 0 00-3-3L3.58 13.42a4 4 0 00-.885 1.343z" />
                                     </svg>
-                                    <a class="" href="{{ route('type-user.edit', $type_user->id) }}">Editar</a>
+                                    <a class="" href="{{ route('type-user.edit', $type_user['id']) }}">Editar</a>
                             </button>
                         </dd>
                     </div>
@@ -36,7 +36,7 @@
                 class="mt-6 justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm
                 font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline
                 focus-visible:outline-2 focus-visible:outline-offset-2
-                focus-visible:outline-indigo-600"><a class="" href="{{ route('type-user.create') }}">Novo</a></button>
+                focus-visible:outline-indigo-600"><a class="" href="{{ route('type-user.create') }}">Novo Tipo de Usuário</a></button>
         </div>
     </div>
 

@@ -16,5 +16,5 @@ Route::get('/usuario', [UserController::class, 'index'])->name('user');
 
 Route::get('/tipo-usuario/create', [TypeUserController::class, 'create'])->name('type-user.create');
 Route::get('/tipo-usuario/edit/{id}', [TypeUserController::class, 'edit'])->name('type-user.edit');
-Route::put('/tipo-usuario/update', [TypeUserController::class, 'update'])->name('type-user.update');
+Route::put('/tipo-usuario/update/{id}', [TypeUserController::class, 'update'])->name('type-user.update');
 Route::post('/tipo-usuario/store', [TypeUserController::class, 'store'])->name('type-user.store');
