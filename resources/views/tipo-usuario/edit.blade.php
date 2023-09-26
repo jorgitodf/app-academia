@@ -18,6 +18,7 @@
                 @include('tipo-usuario.partials.form', ['type_user' => $type_user])
 
                 <x-alert/>
+                <x-messages/>
             </form>
         </div>
     </div>

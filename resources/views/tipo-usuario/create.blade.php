@@ -18,6 +18,7 @@
             </form>
 
             <x-alert/>
+            <x-messages/>
         </div>
     </div>
 

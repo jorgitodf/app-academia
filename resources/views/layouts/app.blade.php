@@ -24,7 +24,7 @@
             @include('layouts.includes._sidebar')
 
             @yield('content')
-
+            <x-messages/>
         </main>
     </body>
 </html>

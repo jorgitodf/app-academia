@@ -39,7 +39,7 @@ class TypeUserController extends Controller
     {
         $this->type_user->create(CreateTypeUserDTO::makeFromRequest($request));
 
-        return redirect()->route('type-user');
+        return redirect()->route('type-user')->with('message', 'Tipo de Usuário Cadastrado com Sucesso!');
     }
 
     public function edit(int $id)
@@ -49,7 +49,7 @@ class TypeUserController extends Controller
         return view('tipo-usuario.edit', compact('type_user', 'legend'));
     }
 
-    public function update(StoreUpdateTypeUser $request, int $id)
+    public function update(StoreUpdateTypeUser $request)
     {
         $type_user = $this->type_user->update(UpdateTypeUserDTO::makeFromRequest($request));
 
@@ -57,6 +57,6 @@ class TypeUserController extends Controller
             return back();
         }
 
-        return redirect('/tipo-usuario');
+        return redirect()->route('type-user')->with('message', 'Tipo de Usuário Atualizado com Sucesso!');
     }
 }
