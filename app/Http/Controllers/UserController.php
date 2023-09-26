@@ -11,12 +11,10 @@ class UserController extends Controller
         return view('usuario.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function create_aluno()
     {
-        //
+        $legend = "Novo Aluno";
+        return view('usuario.create', compact('legend'));
     }
 
     /**
