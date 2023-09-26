@@ -17,12 +17,9 @@ class UserController extends Controller
         return view('usuario.create', compact('legend'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**

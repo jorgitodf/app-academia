@@ -12,83 +12,162 @@
         </div>
 
         <div class="mt-3">
-            <form action="#" method="POST">
+            <form action="{{ route('user.store') }}" method="POST">
+                @csrf()
                 <div class="space-y-1">
                     <div class="pb-8">
                         <div class="mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <div class="sm:col-span-3">
-                                <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">First
-                                    name</label>
+                                <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Nome Completo:</label>
                                 <div class="mt-1">
-                                    <input type="text" name="first-name" id="first-name" autocomplete="given-name"
-                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input type="text" name="name" id="name" autocomplete="given-name"
+                                        class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 border border-gray-200 rounded mb-4
+                                        block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
                             </div>
 
-                            <div class="sm:col-span-3">
-                                <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Last
-                                    name</label>
+                            <div class="sm:col-span-1">
+                                <label for="cpf" class="block text-sm font-medium leading-6 text-gray-900">CPF:</label>
                                 <div class="mt-1">
-                                    <input type="text" name="last-name" id="last-name" autocomplete="family-name"
-                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input type="text" name="cpf" id="cpf" autocomplete="family-name"
+                                        class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 border border-gray-200 rounded mb-4 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
                             </div>
 
                             <div class="sm:col-span-2">
-                                <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email
-                                    address</label>
+                                <label for="email" class="block text-sm font-medium leading-6 text-gray-900">E-mail:</label>
                                 <div class="mt-1">
                                     <input id="email" name="email" type="email" autocomplete="email"
-                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                        class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 border border-gray-200 rounded mb-4 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
                             </div>
 
-                            <div class="sm:col-span-3">
-                                <label for="country"
-                                    class="block text-sm font-medium leading-6 text-gray-900">Country</label>
+                            <div class="col-span-2">
+                                <label for="profession"
+                                    class="block text-sm font-medium leading-6 text-gray-900">Profissão: </label>
                                 <div class="mt-1">
-                                    <select id="country" name="country" autocomplete="country-name"
-                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-                                        <option>United States</option>
-                                        <option>Canada</option>
-                                        <option>Mexico</option>
+                                    <input type="text" name="profession" id="profession"
+                                        autocomplete="profession"
+                                        class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 border border-gray-200 rounded mb-4 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+
+                            <div class="col-span-2">
+                                <label for="birth_date"
+                                    class="block text-sm font-medium leading-6 text-gray-900">Data Nascimento: </label>
+                                <div class="mt-1">
+                                    <input type="text" name="birth_date" id="birth_date"
+                                        autocomplete="birth_date"
+                                        class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 border border-gray-200 rounded mb-4 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-2">
+                                <label for="gender"
+                                    class="block text-sm font-medium leading-6 text-gray-900">Sexo:</label>
+                                <div class="mt-1">
+                                    <select id="gender" name="gender" autocomplete="gender"
+                                        class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                                        <option></option>
+                                        <option>Feminino</option>
+                                        <option>Masculino</option>
                                     </select>
                                 </div>
                             </div>
 
-                            <div class="col-span-full">
-                                <label for="street-address"
-                                    class="block text-sm font-medium leading-6 text-gray-900">Street address</label>
+                            <div class="col-span-2">
+                                <label for="fixed"
+                                    class="block text-sm font-medium leading-6 text-gray-900">Telefone: </label>
                                 <div class="mt-1">
-                                    <input type="text" name="street-address" id="street-address"
-                                        autocomplete="street-address"
-                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input type="text" name="fixed" id="fixed"
+                                        autocomplete="fixed"
+                                        class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 border border-gray-200 rounded mb-4 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
                             </div>
 
-                            <div class="sm:col-span-2 sm:col-start-1">
-                                <label for="city"
-                                    class="block text-sm font-medium leading-6 text-gray-900">City</label>
+                            <div class="col-span-2">
+                                <label for="mobile"
+                                    class="block text-sm font-medium leading-6 text-gray-900">Celular: </label>
                                 <div class="mt-1">
-                                    <input type="text" name="city" id="city" autocomplete="address-level2"
-                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                </div>
-                            </div>
-
-                            <div class="sm:col-span-2">
-                                <label for="region" class="block text-sm font-medium leading-6 text-gray-900">State /
-                                    Province</label>
-                                <div class="mt-1">
-                                    <input type="text" name="region" id="region" autocomplete="address-level1"
-                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input type="text" name="mobile" id="mobile"
+                                        autocomplete="mobile"
+                                        class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 border border-gray-200 rounded mb-4 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
                             </div>
 
                             <div class="sm:col-span-2">
-                                <label for="postal-code" class="block text-sm font-medium leading-6 text-gray-900">ZIP / Postal code</label>
+                                <label for="public_places"
+                                    class="block text-sm font-medium leading-6 text-gray-900">Logradouro:</label>
                                 <div class="mt-1">
-                                    <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code"
-                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <select id="public_places" name="public_places" autocomplete="public_places"
+                                        class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-2">
+                                <label for="description"
+                                    class="block text-sm font-medium leading-6 text-gray-900">Endereço:</label>
+                                <div class="mt-1">
+                                    <input type="text" name="description" id="description" autocomplete="description"
+                                        class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-2">
+                                <label for="complement"
+                                    class="block text-sm font-medium leading-6 text-gray-900">Complemento:</label>
+                                <div class="mt-1">
+                                    <input type="text" name="complement" id="complement" autocomplete="complement"
+                                        class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-1">
+                                <label for="number"
+                                    class="block text-sm font-medium leading-6 text-gray-900">Número:</label>
+                                <div class="mt-1">
+                                    <input type="text" name="number" id="number" autocomplete="number"
+                                        class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-1">
+                                <label for="zip_code"
+                                    class="block text-sm font-medium leading-6 text-gray-900">CEP:</label>
+                                <div class="mt-1">
+                                    <input type="text" name="zip_code" id="zip_code" autocomplete="zip_code"
+                                        class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-2">
+                                <label for="neighborhood"
+                                    class="block text-sm font-medium leading-6 text-gray-900">Bairro:</label>
+                                <div class="mt-1">
+                                    <input type="text" name="neighborhood" id="neighborhood" autocomplete="neighborhood"
+                                        class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-2">
+                                <label for="citie"
+                                    class="block text-sm font-medium leading-6 text-gray-900">Cidade:</label>
+                                <div class="mt-1">
+                                    <input type="text" name="citie" id="citie" autocomplete="citie"
+                                        class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-2">
+                                <label for="state"
+                                    class="block text-sm font-medium leading-6 text-gray-900">UF</label>
+                                <div class="mt-1">
+                                    <select id="state" name="state" autocomplete="state"
+                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                                        <option></option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -96,7 +175,7 @@
                     <div class="pb-8">
                         <div class="mt-2 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <div class="col-span-full">
-                                <label for="photo" class="block text-sm font-medium leading-6 text-gray-900">Photo</label>
+                                <label for="foto" class="block text-sm font-medium leading-6 text-gray-900">Foto</label>
                                 <div class="mt-2 flex items-center gap-x-3">
                                     <svg class="h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor"
                                         aria-hidden="true">
@@ -105,13 +184,11 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                     <button type="button"
-                                        class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Change</button>
+                                        class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Mudar</button>
                                 </div>
                             </div>
 
                             <div class="col-span-full">
-                                <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Cover
-                                    photo</label>
                                 <div
                                     class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                                     <div class="text-center">
@@ -122,14 +199,14 @@
                                                 clip-rule="evenodd" />
                                         </svg>
                                         <div class="mt-4 flex text-sm leading-6 text-gray-600">
-                                            <label for="file-upload"
+                                            <label for="photo"
                                                 class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
-                                                <span>Upload a file</span>
-                                                <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                                                <span>Enviar um arquivo</span>
+                                                <input id="photo" name="photo" type="file" class="sr-only">
                                             </label>
-                                            <p class="pl-1">or drag and drop</p>
+                                            <p class="pl-1">ou arraste e solte</p>
                                         </div>
-                                        <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+                                        <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF até 15MB</p>
                                     </div>
                                 </div>
                             </div>
@@ -138,9 +215,10 @@
                 </div>
 
                 <div class="mt-5 flex items-center justify-end gap-x-6">
-                    <button type="button" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
                     <button type="submit"
-                        class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+                        class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm
+                        hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
+                        focus-visible:outline-indigo-600">Salvar</button>
                 </div>
             </form>
 
