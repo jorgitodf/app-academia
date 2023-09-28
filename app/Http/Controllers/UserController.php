@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Services\PublicPlaceService;
 
 class UserController extends Controller
 {
+    protected $model;
+
+    public function __construct(protected PublicPlaceService $public_place)
+    {}
+
     public function index()
     {
         return view('usuario.index');
@@ -14,6 +20,7 @@ class UserController extends Controller
     public function create_aluno()
     {
         $legend = "Novo Aluno";
+        dd($this->public_place->getAll());
         return view('usuario.create', compact('legend'));
     }
 
