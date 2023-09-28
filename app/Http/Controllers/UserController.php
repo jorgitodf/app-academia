@@ -7,8 +7,6 @@ use App\Services\PublicPlaceService;
 
 class UserController extends Controller
 {
-    protected $model;
-
     public function __construct(protected PublicPlaceService $public_place)
     {}
 
@@ -20,8 +18,8 @@ class UserController extends Controller
     public function create_aluno()
     {
         $legend = "Novo Aluno";
-        dd($this->public_place->getAll());
-        return view('usuario.create', compact('legend'));
+        $public_places = $this->public_place->getAll();
+        return view('usuario.create', compact('legend', 'public_places'));
     }
 
     public function store(Request $request)

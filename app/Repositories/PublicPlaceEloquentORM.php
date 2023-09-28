@@ -5,7 +5,6 @@ namespace App\Repositories;
 use App\Models\PublicPlace;
 use App\Repositories\PublicPlaceRepositoryInterface;
 
-
 class PublicPlaceEloquentORM implements PublicPlaceRepositoryInterface
 
 {
