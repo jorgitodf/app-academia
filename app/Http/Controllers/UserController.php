@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\PublicPlaceService;
+use App\Services\StateService;
 
 class UserController extends Controller
 {
-    public function __construct(protected PublicPlaceService $public_place)
+    public function __construct(protected PublicPlaceService $public_place, protected StateService $state)
     {}
 
     public function index()
@@ -19,7 +20,8 @@ class UserController extends Controller
     {
         $legend = "Novo Aluno";
         $public_places = $this->public_place->getAll();
-        return view('usuario.create', compact('legend', 'public_places'));
+        $states = $this->state->getAll();
+        return view('usuario.create', compact('legend', 'public_places', 'states'));
     }
 
     public function store(Request $request)

@@ -73,12 +73,12 @@
             </div>
 
             <div class="sm:col-span-2">
-                <label for="public_places" class="block text-sm font-medium leading-6 text-gray-900">Logradouro:</label>
+                <label for="public_place_id" class="block text-sm font-medium leading-6 text-gray-900">Logradouro:</label>
                 <div class="mt-1">
-                    <select id="public_places" name="public_places" autocomplete="public_places"
-                        class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                    <select id="public_place_id" name="public_place_id" autocomplete="public_place_id"
+                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
                         <option></option>
-                        @foreach ($public_places as $key => $public_place)
+                        @foreach ($public_places as $public_place)
                             <option value="{{ $public_place['id'] }}">{{ $public_place['name'] }}</option>
                         @endforeach
                     </select>
@@ -134,11 +134,14 @@
             </div>
 
             <div class="sm:col-span-2">
-                <label for="state" class="block text-sm font-medium leading-6 text-gray-900">UF</label>
+                <label for="state_id" class="block text-sm font-medium leading-6 text-gray-900">UF</label>
                 <div class="mt-1">
-                    <select id="state" name="state" autocomplete="state"
+                    <select id="state_id" name="state_id" autocomplete="state_id"
                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
                         <option></option>
+                        @foreach ($states as $key => $state)
+                            <option value="{{ $state['id'] }}">{{ $state['state'] }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>

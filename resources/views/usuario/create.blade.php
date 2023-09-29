@@ -13,7 +13,7 @@
 
         <div class="mt-3">
             <form action="{{ route('user.store') }}" method="POST">
-                @include('usuario.partials.form')
+                @include('usuario.partials.form', compact('public_places', 'states'))
             </form>
 
 
