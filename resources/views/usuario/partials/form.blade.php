@@ -5,16 +5,18 @@
             <div class="sm:col-span-3">
                 <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Nome Completo:</label>
                 <div class="mt-1">
-                    <input type="text" name="name" id="name" autocomplete="given-name"
+                    <input type="text" name="name" id="name" autocomplete="given-name" value="{{ old('name') }}"
                         class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 border border-gray-200 rounded mb-4
                         block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <input type="hidden" id="type_user_id" name="type_user_id" value="3" />
+                    <input type="hidden" id="password" name="password" value="123456789" />
                 </div>
             </div>
 
             <div class="sm:col-span-1">
                 <label for="cpf" class="block text-sm font-medium leading-6 text-gray-900">CPF:</label>
                 <div class="mt-1">
-                    <input type="text" name="cpf" id="cpf" autocomplete="family-name"
+                    <input type="text" name="cpf" id="cpf" autocomplete="family-name" value="{{ old('cpf') }}"
                         class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 border border-gray-200 rounded mb-4 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 </div>
             </div>
@@ -22,7 +24,7 @@
             <div class="sm:col-span-2">
                 <label for="email" class="block text-sm font-medium leading-6 text-gray-900">E-mail:</label>
                 <div class="mt-1">
-                    <input id="email" name="email" type="email" autocomplete="email"
+                    <input id="email" name="email" type="email" autocomplete="email" value="{{ old('email') }}"
                         class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 border border-gray-200 rounded mb-4 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 </div>
             </div>
@@ -30,7 +32,7 @@
             <div class="col-span-2">
                 <label for="profession" class="block text-sm font-medium leading-6 text-gray-900">Profissão: </label>
                 <div class="mt-1">
-                    <input type="text" name="profession" id="profession" autocomplete="profession"
+                    <input type="text" name="profession" id="profession" autocomplete="profession" value="{{ old('profession') }}"
                         class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 border border-gray-200 rounded mb-4 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 </div>
             </div>
@@ -39,7 +41,7 @@
                 <label for="birth_date" class="block text-sm font-medium leading-6 text-gray-900">Data Nascimento:
                 </label>
                 <div class="mt-1">
-                    <input type="text" name="birth_date" id="birth_date" autocomplete="birth_date"
+                    <input type="text" name="birth_date" id="birth_date" autocomplete="birth_date" value="{{ old('birth_date') }}"
                         class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 border border-gray-200 rounded mb-4 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 </div>
             </div>
@@ -48,10 +50,10 @@
                 <label for="gender" class="block text-sm font-medium leading-6 text-gray-900">Sexo:</label>
                 <div class="mt-1">
                     <select id="gender" name="gender" autocomplete="gender"
-                        class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                        class="text-sm text-gray-base w-full mr-3 py-1 px-4 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
                         <option></option>
-                        <option>Feminino</option>
-                        <option>Masculino</option>
+                        <option value="Feminino">Feminino</option>
+                        <option value="Masculino">Masculino</option>
                     </select>
                 </div>
             </div>
@@ -59,7 +61,7 @@
             <div class="col-span-2">
                 <label for="fixed" class="block text-sm font-medium leading-6 text-gray-900">Telefone: </label>
                 <div class="mt-1">
-                    <input type="text" name="fixed" id="fixed" autocomplete="fixed"
+                    <input type="text" name="fixed" id="fixed" autocomplete="fixed" value="{{ old('fixed') }}"
                         class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 border border-gray-200 rounded mb-4 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 </div>
             </div>
@@ -67,7 +69,7 @@
             <div class="col-span-2">
                 <label for="mobile" class="block text-sm font-medium leading-6 text-gray-900">Celular: </label>
                 <div class="mt-1">
-                    <input type="text" name="mobile" id="mobile" autocomplete="mobile"
+                    <input type="text" name="mobile" id="mobile" autocomplete="mobile" value="{{ old('mobile') }}"
                         class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 border border-gray-200 rounded mb-4 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 </div>
             </div>
@@ -76,7 +78,7 @@
                 <label for="public_place_id" class="block text-sm font-medium leading-6 text-gray-900">Logradouro:</label>
                 <div class="mt-1">
                     <select id="public_place_id" name="public_place_id" autocomplete="public_place_id"
-                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                        class="text-sm text-gray-base w-full mr-3 py-1 px-4 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
                         <option></option>
                         @foreach ($public_places as $public_place)
                             <option value="{{ $public_place['id'] }}">{{ $public_place['name'] }}</option>
@@ -137,7 +139,7 @@
                 <label for="state_id" class="block text-sm font-medium leading-6 text-gray-900">UF</label>
                 <div class="mt-1">
                     <select id="state_id" name="state_id" autocomplete="state_id"
-                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                        class="text-sm text-gray-base w-full mr-3 py-1 px-4 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
                         <option></option>
                         @foreach ($states as $key => $state)
                             <option value="{{ $state['id'] }}">{{ $state['state'] }}</option>

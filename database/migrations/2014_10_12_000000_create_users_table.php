@@ -17,7 +17,7 @@ return new class extends Migration
 			$table->date('birth_date');
 			$table->string('profession', 120);
             $table->enum('gender', ['Masculino', 'Feminino']);
-			$table->string('photo', 255);
+			$table->string('photo', 255)->nullable();
             $table->string('email', 120);
             $table->string('password');
             $table->unsignedInteger('type_user_id');

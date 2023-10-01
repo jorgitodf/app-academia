@@ -3,11 +3,13 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Helpers\Helpers;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use App\Helpers\Helpers;
+
 
 class User extends Authenticatable
 {
@@ -19,7 +21,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'birth_date', 'profession', 'registration', 'cpf', 'gender', 'photo', 'email', 'password', 'type_user_id'
+        'name', 'birth_date', 'profession', 'cpf', 'gender', 'photo', 'email', 'password', 'type_user_id'
     ];
 
     /**

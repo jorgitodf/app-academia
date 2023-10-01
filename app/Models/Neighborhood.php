@@ -11,11 +11,16 @@ class Neighborhood extends Model
 
     protected $table = 'neighborhoods';
     protected $fillable = [
-        'name'
+        'neighborhood', 'citie_id'
     ];
 
     public function adresses()
     {
         return $this->hasMany(Adress::class);
+    }
+
+    public function cities()
+    {
+        return $this->belongsTo(Citie::class);
     }
 }

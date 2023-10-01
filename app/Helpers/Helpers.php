@@ -62,14 +62,14 @@ class Helpers
         if ($lenValor != 10 && $lenValor != 11)
             return false;
 
-        if($valor[0] == "0" || $valor[2] == "0")
+        if ($valor[0] == "0" || $valor[2] == "0")
             return false;
 
         return true;
     }
 
 
-    public static function validaCPF($cpf)
+    /*public static function validaCPF($cpf)
     {
         // Elimina possivel mascara
         $cpf = preg_replace("/[^0-9]/", "", $cpf);
@@ -108,7 +108,7 @@ class Helpers
 
             return true;
         }
-    }
+    }*/
 
     public static function ValidaData($data)
     {
