@@ -6,7 +6,7 @@ use DateTime;
 
 class Helpers
 {
-    public static function data_inicial()
+    public static function data_inicial(): string
     {
         $ano = date("Y");
         $mes = date("m");
