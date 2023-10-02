@@ -38,7 +38,7 @@ class UserController extends Controller
     public function store(StoreUpdateUser $request)
     {
         //dd(strlen($request->input('fixed')));
-        //dd($request->all());
+        dd($request->all());
         //$this->phone->create(CreatePhoneDTO::makeFromRequest($request_phone));
         $user = $this->user->create(CreateUserDTO::makeFromRequest($request));
         //dd($user->id);

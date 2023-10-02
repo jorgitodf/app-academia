@@ -90,7 +90,7 @@
             <div class="sm:col-span-2">
                 <label for="description" class="block text-sm font-medium leading-6 text-gray-900">Endereço:</label>
                 <div class="mt-1">
-                    <input type="text" name="description" id="description" autocomplete="description"
+                    <input type="text" name="description" id="description" autocomplete="description" value="{{ old('description') }}"
                         class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 </div>
             </div>
@@ -98,7 +98,7 @@
             <div class="sm:col-span-2">
                 <label for="complement" class="block text-sm font-medium leading-6 text-gray-900">Complemento:</label>
                 <div class="mt-1">
-                    <input type="text" name="complement" id="complement" autocomplete="complement"
+                    <input type="text" name="complement" id="complement" autocomplete="complement" value="{{ old('complement') }}"
                         class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 </div>
             </div>
@@ -106,7 +106,7 @@
             <div class="sm:col-span-1">
                 <label for="number" class="block text-sm font-medium leading-6 text-gray-900">Número:</label>
                 <div class="mt-1">
-                    <input type="text" name="number" id="number" autocomplete="number"
+                    <input type="text" name="number" id="number" autocomplete="number" value="{{ old('number') }}"
                         class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 </div>
             </div>
@@ -114,7 +114,7 @@
             <div class="sm:col-span-1">
                 <label for="zip_code" class="block text-sm font-medium leading-6 text-gray-900">CEP:</label>
                 <div class="mt-1">
-                    <input type="text" name="zip_code" id="zip_code" autocomplete="zip_code"
+                    <input type="text" name="zip_code" id="zip_code" autocomplete="zip_code" value="{{ old('zip_code') }}"
                         class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 </div>
             </div>
@@ -122,7 +122,7 @@
             <div class="sm:col-span-2">
                 <label for="neighborhood" class="block text-sm font-medium leading-6 text-gray-900">Bairro:</label>
                 <div class="mt-1">
-                    <input type="text" name="neighborhood" id="neighborhood" autocomplete="neighborhood"
+                    <input type="text" name="neighborhood" id="neighborhood" autocomplete="neighborhood" value="{{ old('neighborhood') }}"
                         class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 </div>
             </div>
@@ -130,7 +130,7 @@
             <div class="sm:col-span-2">
                 <label for="citie" class="block text-sm font-medium leading-6 text-gray-900">Cidade:</label>
                 <div class="mt-1">
-                    <input type="text" name="citie" id="citie" autocomplete="citie"
+                    <input type="text" name="citie" id="citie" autocomplete="citie" value="{{ old('citie') }}"
                         class="text-sm text-gray-base w-full mr-3 py-4 px-4 h-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 </div>
             </div>

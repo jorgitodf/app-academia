@@ -30,7 +30,15 @@ class StoreUpdateUser extends FormRequest
             'profession' => 'required|min:5|max:30',
             'birth_date' => 'required',
             'fixed' => ['required', 'phone'],
-            'mobile' => ['required', 'mobile']
+            'mobile' => ['required', 'mobile'],
+            'public_place_id' => ['required', 'integer'],
+            'description' => ['required'],
+            'complement' => ['required'],
+            'number' => ['required'],
+            'zip_code' => ['required', 'cep', 'integer'],
+            'neighborhood' => ['required'],
+            'citie' => ['required'],
+            'state_id' => ['required']
         ];
 
         if ($this->method() === 'PUT') {
@@ -79,6 +87,19 @@ class StoreUpdateUser extends FormRequest
 
         });
 
+        $validator->addExtension('cep', function ($attribute, $value, $parameters, $validator) {
+
+            $valor =  preg_replace("/[^0-9]/", "", $value);
+
+            $lenValor = (int) strlen($valor);
+
+            if ($lenValor < 8)
+                return false;
+
+            return true;
+
+        });
+
     }
 
     public function messages()
@@ -98,8 +119,19 @@ class StoreUpdateUser extends FormRequest
             'birth_date' => 'Data de Nascimento Obrigatória!',
             'fixed.required' => 'Telefone Obrigatório!',
             'fixed.phone' => 'O Telefone informado é inválido!',
-            'mobile.required' => 'Telefone Obrigatório!',
-            'mobile.mobile' => 'O Celular informado é inválido!'
+            'mobile.required' => 'Celular Obrigatório!',
+            'mobile.mobile' => 'O Celular informado é inválido!',
+            'public_place_id.required' => 'Logradouro Obrigatório!',
+            'public_place_id.integer' => 'Erro no Logradouro!',
+            'description.required' => 'Endereço Obrigatório!',
+            'complement.required' => 'Complemento Obrigatório!',
+            'number.required' => 'Número Obrigatório!',
+            'zip_code.required' => 'CEP Obrigatório!',
+            'zip_code.cep' => 'CEP Inválido!',
+            'zip_code.integer' => 'Erro no CEP!',
+            'neighborhood.required' => 'Bairro Obrigatório!',
+            'citie.required' => 'Cidade Obrigatório!',
+            'state_id.required' => 'UF Obrigatória!'
         ];
 
     }

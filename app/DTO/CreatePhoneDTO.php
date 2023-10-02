@@ -2,7 +2,7 @@
 
 namespace App\DTO;
 
-use App\Http\Requests\StoreUpdatePhone;
+use App\Http\Requests\StoreUpdateUser;
 
 class CreatePhoneDTO
 {
@@ -12,7 +12,7 @@ class CreatePhoneDTO
         public string $user_id
     ) {}
 
-    public static function makeFromRequest(StoreUpdatePhone $request): self
+    public static function makeFromRequest(StoreUpdateUser $request): self
     {
         return new self(
             $request->fixed,
