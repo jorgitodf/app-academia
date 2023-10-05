@@ -21,7 +21,13 @@ class PhoneEloquentORM implements PhoneRepositoryInterface
 
     public function create(CreatePhoneDTO $dto): stdClass
     {
-        $phone = $this->model->create((array) $dto);
+        $phone = $this->model->with('user')->create([
+            'fixed' => $dto->fixed,
+            'mobile' => $dto->mobile,
+            'user_id' => $dto->user_id
+        ]);
+
+        $phone = $phone->with('user')->first();
 
         return (object) $phone->toArray();
     }

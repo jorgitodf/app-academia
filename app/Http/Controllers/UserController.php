@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\DTO\CreateAdressDTO;
 use App\DTO\CreatePhoneDTO;
 use App\DTO\CreateUserDTO;
-use App\Http\Requests\StoreUpdatePhone;
 use App\Http\Requests\StoreUpdateUser;
+use App\Services\AdressService;
+use App\Services\CitieService;
+use App\Services\NeighborhoodService;
 use App\Services\PhoneService;
-use App\Helpers\ValidadeUser;
 use Illuminate\Http\Request;
 use App\Services\PublicPlaceService;
 use App\Services\StateService;
@@ -19,11 +21,15 @@ class UserController extends Controller
         protected PublicPlaceService $public_place,
         protected StateService $state,
         protected UserService $user,
-        protected PhoneService $phone
+        protected PhoneService $phone,
+        protected CitieService $citie,
+        protected NeighborhoodService $neighborhood,
+        protected AdressService $adress
     ){}
 
     public function index()
     {
+        dd($this->user->getAll());
         return view('usuario.index');
     }
 
@@ -36,13 +42,21 @@ class UserController extends Controller
     }
 
     public function store(StoreUpdateUser $request)
-    {
-        //dd(strlen($request->input('fixed')));
-        dd($request->all());
-        //$this->phone->create(CreatePhoneDTO::makeFromRequest($request_phone));
+    {   dd($request->all());
+        $data = $request->all();
+
+        $data['photo'] = $request->file('photo')->store('users');
         $user = $this->user->create(CreateUserDTO::makeFromRequest($request));
-        //dd($user->id);
-        //$user->phone()->create(['fixed' => $request->input('fixed'), 'mobile' => $request->input('mobile')]);
+        $data['user_id'] = $user->id;
+        $this->phone->create(CreatePhoneDTO::makeFromRequest($data));
+        $citie = $this->citie->findOne($data['citie'], $data['state_id']);
+        $neighborhood = $this->neighborhood->findOne($data['neighborhood'], $citie->id);
+
+        if (($citie->name === $data['citie']) && ($neighborhood->neighborhood === $data['neighborhood'])) {
+            $data['neighborhood_id'] = $neighborhood->id;
+        }
+
+        $this->adress->create(CreateAdressDTO::makeFromRequest($data));
 
     }
 

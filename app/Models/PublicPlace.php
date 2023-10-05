@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PublicPlace extends Model
 {
@@ -14,7 +15,7 @@ class PublicPlace extends Model
         'name'
     ];
 
-    public function adresses()
+    public function adresses(): HasMany
     {
         return $this->hasMany(Adress::class);
     }

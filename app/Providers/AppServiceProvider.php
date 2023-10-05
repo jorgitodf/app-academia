@@ -2,6 +2,12 @@
 
 namespace App\Providers;
 
+use App\Repositories\AdressEloquentORM;
+use App\Repositories\AdressRepositoryInterface;
+use App\Repositories\CitieEloquentORM;
+use App\Repositories\CitieRepositoryInterface;
+use App\Repositories\NeighborhoodEloquentORM;
+use App\Repositories\NeighborhoodRepositoryInterface;
 use App\Repositories\PhoneEloquentORM;
 use App\Repositories\PhoneRepositoryInterface;
 use App\Repositories\TypeUserEloquentORM;
@@ -26,6 +32,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(StateRepositoryInterface::class, StateEloquentORM::class);
         $this->app->bind(UserRepositoryInterface::class, UserEloquentORM:: class);
         $this->app->bind(PhoneRepositoryInterface::class, PhoneEloquentORM::class);
+        $this->app->bind(AdressRepositoryInterface::class, AdressEloquentORM::class);
+        $this->app->bind(CitieRepositoryInterface::class, CitieEloquentORM::class);
+        $this->app->bind(NeighborhoodRepositoryInterface::class, NeighborhoodEloquentORM::class);
     }
 
     /**

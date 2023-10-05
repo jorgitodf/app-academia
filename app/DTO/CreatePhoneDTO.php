@@ -2,8 +2,6 @@
 
 namespace App\DTO;
 
-use App\Http\Requests\StoreUpdateUser;
-
 class CreatePhoneDTO
 {
     public function __construct(
@@ -12,12 +10,12 @@ class CreatePhoneDTO
         public string $user_id
     ) {}
 
-    public static function makeFromRequest(StoreUpdateUser $request): self
+    public static function makeFromRequest(array $request): self
     {
         return new self(
-            $request->fixed,
-            $request->mobile,
-            $request->user_id
+            $request['fixed'],
+            $request['mobile'],
+            $request['user_id']
         );
     }
 }

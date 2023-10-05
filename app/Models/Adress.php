@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Helpers\Helpers;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Adress extends Model
 {
@@ -15,19 +16,19 @@ class Adress extends Model
         'description', 'complement', 'number', 'zip_code', 'neighborhood_id', 'public_place_id', 'user_id'
     ];
 
-    public function user()
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function public_place()
+    public function public_place(): BelongsTo
     {
-        return $this->belongsTo(PublicPlace::class);
+        return $this->belongsTo(PublicPlace::class, 'public_place_id');
     }
 
-    public function neighborhoods()
+    public function neighborhoods(): BelongsTo
     {
-        return $this->belongsTo(Neighborhood::class);
+        return $this->belongsTo(Neighborhood::class, 'neighborhood_id');
     }
 
 

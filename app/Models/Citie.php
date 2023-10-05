@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Citie extends Model
 {
@@ -19,7 +20,7 @@ class Citie extends Model
         return $this->belongsTo(State::class);
     }
 
-    public function neighborhoods()
+    public function neighborhoods(): HasMany
     {
         return $this->hasMany(Neighborhood::class);
     }

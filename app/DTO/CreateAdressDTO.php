@@ -2,7 +2,6 @@
 
 namespace App\DTO;
 
-use App\Http\Requests\StoreUpdateUser;
 
 class CreateAdressDTO
 {
@@ -12,22 +11,20 @@ class CreateAdressDTO
         public string $complement,
         public string $number,
         public string $zip_code,
-        public string $neighborhood,
-        public string $citie,
-        public string $state
+        public int $user_id,
+        public int $neighborhood_id
     ) {}
 
-    public static function makeFromRequest(StoreUpdateUser $request): self
+    public static function makeFromRequest(array $request): self
     {
         return new self(
-            $request->public_place_id,
-            $request->description,
-            $request->complement,
-            $request->number,
-            $request->zip_code,
-            $request->neighborhood,
-            $request->citie,
-            $request->state
+            $request['public_place_id'],
+            $request['description'],
+            $request['complement'],
+            $request['number'],
+            $request['zip_code'],
+            $request['user_id'],
+            $request['neighborhood_id']
         );
     }
 }

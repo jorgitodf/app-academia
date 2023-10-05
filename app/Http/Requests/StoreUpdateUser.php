@@ -4,7 +4,6 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-
 class StoreUpdateUser extends FormRequest
 {
     /**
@@ -25,7 +24,7 @@ class StoreUpdateUser extends FormRequest
         $rules = [
             'name' => 'required|min:5|max:80',
             'cpf' => 'required|unique:users',
-            'email' => 'required|unique:users',
+            'email' => 'required|email_ck|unique:users',
             'gender' => 'required',
             'profession' => 'required|min:5|max:30',
             'birth_date' => 'required',
@@ -35,10 +34,12 @@ class StoreUpdateUser extends FormRequest
             'description' => ['required'],
             'complement' => ['required'],
             'number' => ['required'],
-            'zip_code' => ['required', 'cep', 'integer'],
+            'zip_code' => ['required', 'cep'],
             'neighborhood' => ['required'],
             'citie' => ['required'],
-            'state_id' => ['required']
+            'state_id' => ['required'],
+            'photo' => ['required', 'image', 'mimes:jpg,bmp,png,jpeg', 'max:100']
+
         ];
 
         if ($this->method() === 'PUT') {
@@ -55,7 +56,8 @@ class StoreUpdateUser extends FormRequest
 
     public function withValidator($validator)
     {
-        $validator->addExtension('phone', function ($attribute, $value, $parameters, $validator) {
+        $validator->addExtension('phone', function ($attribute, $value, $parameters, $validator)
+        {
 
             $valor = preg_replace("/[^0-9]/", "", $value);
 
@@ -71,7 +73,8 @@ class StoreUpdateUser extends FormRequest
 
         });
 
-        $validator->addExtension('mobile', function ($attribute, $value, $parameters, $validator) {
+        $validator->addExtension('mobile', function ($attribute, $value, $parameters, $validator)
+        {
 
             $valor = preg_replace("/[^0-9]/", "", $value);
 
@@ -87,7 +90,8 @@ class StoreUpdateUser extends FormRequest
 
         });
 
-        $validator->addExtension('cep', function ($attribute, $value, $parameters, $validator) {
+        $validator->addExtension('cep', function ($attribute, $value, $parameters, $validator)
+        {
 
             $valor =  preg_replace("/[^0-9]/", "", $value);
 
@@ -99,6 +103,17 @@ class StoreUpdateUser extends FormRequest
             return true;
 
         });
+
+        $validator->addExtension('email_ck', function ($attribute, $value, $parameters, $validator)
+        {
+
+            if (!preg_match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$^", $value))
+                return false;
+
+            return true;
+
+        });
+
 
     }
 
@@ -113,6 +128,7 @@ class StoreUpdateUser extends FormRequest
             'cpf.required' => 'CPF Obrigatório!',
             'cpf.unique' => 'CPF já cadastrado!',
             'email.required' => 'E-mail Obrigatório!',
+            'email.email_ck' => 'E-mail Inválido!',
             'email.unique' => 'E-mail já cadastrado!',
             'gender.required' => 'Sexo Obrigatório!',
             'profession' => 'Profissão Obrigatória',
@@ -131,7 +147,10 @@ class StoreUpdateUser extends FormRequest
             'zip_code.integer' => 'Erro no CEP!',
             'neighborhood.required' => 'Bairro Obrigatório!',
             'citie.required' => 'Cidade Obrigatório!',
-            'state_id.required' => 'UF Obrigatória!'
+            'state_id.required' => 'UF Obrigatória!',
+            'photo.required' => 'Foto Obrigatória',
+            'photo.mimes' => 'Formatos Permitidos jpg, bmp, png e jpeg!',
+            'photo.max' => 'Tamanho da Foto Superior a 100 Kb!'
         ];
 
     }

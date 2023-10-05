@@ -6,6 +6,7 @@ namespace App\Models;
 
 use App\Helpers\Helpers;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -47,14 +48,14 @@ class User extends Authenticatable
         return $this->belongsTo(TypeUser::class);
     }
 
-    public function phone()
+    public function phones(): HasMany
     {
-        return $this->hasOne(Phone::class);
+        return $this->hasMany(Phones::class);
     }
 
-    public function adress()
+    public function adresses(): hasMany
     {
-        return $this->hasOne(Adress::class);
+        return $this->hasMany(Adress::class);
     }
 
     public function registrations()

@@ -7,7 +7,7 @@ use App\Models\Adress;
 use stdClass;
 use App\Repositories\AdressRepositoryInterface;
 
-class PhoneEloquentORM implements AdressRepositoryInterface
+class AdressEloquentORM implements AdressRepositoryInterface
 {
     public function __construct(protected Adress $model)
     {}
@@ -21,8 +21,19 @@ class PhoneEloquentORM implements AdressRepositoryInterface
 
     public function create(CreateAdressDTO $dto): stdClass
     {
-        $phone = $this->model->create((array) $dto);
+        $adress = $this->model->with('user')->create([
+            'description' => $dto->description,
+            'complement' => $dto->complement,
+            'number' => $dto->number,
+            'zip_code' => $dto->zip_code,
+            'neighborhood_id' => $dto->neighborhood_id,
+            'public_place_id' => $dto->public_place_id,
+            'user_id' => $dto->user_id
+        ]);
 
-        return (object) $phone->toArray();
+        $adress = $adress->with('user')->first();
+
+        return (object) $adress->toArray();
     }
+
 }

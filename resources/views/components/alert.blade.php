@@ -1,4 +1,4 @@
-<div class="mt-3 sm:mx-auto sm:w-full sm:max-w-sm" role="alert">
+<div class="mt-3 px-3 py-5 flex flex-col space-y-2 sm:mx-auto sm:w-full sm:max-w-sm flex" role="alert">
     @if($errors->any())
         @foreach($errors->all() as $error)
 

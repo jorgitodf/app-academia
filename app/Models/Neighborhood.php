@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Neighborhood extends Model
 {
@@ -14,12 +16,12 @@ class Neighborhood extends Model
         'neighborhood', 'citie_id'
     ];
 
-    public function adresses()
+    public function adresses(): HasMany
     {
         return $this->hasMany(Adress::class);
     }
 
-    public function cities()
+    public function citie(): BelongsTo
     {
         return $this->belongsTo(Citie::class);
     }

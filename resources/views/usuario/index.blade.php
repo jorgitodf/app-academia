@@ -12,13 +12,14 @@
             </h2>
         </div>
         <div class="mt-0 border-t border-gray-100">
-            <div>
+
+            {{--  <div>
                 <button type="submit"
                     class="mt-6 justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm
                     font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline
                     focus-visible:outline-2 focus-visible:outline-offset-2
                     focus-visible:outline-indigo-600"><a class="" href="{{ route('user.create') }}">Novo Aluno</a></button>
-            </div>
+            </div>  --}}
         </div>
     </div>
 
