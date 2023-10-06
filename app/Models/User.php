@@ -6,6 +6,7 @@ namespace App\Models;
 
 use App\Helpers\Helpers;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -43,9 +44,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function type_user()
+    public function type_user(): BelongsTo
     {
-        return $this->belongsTo(TypeUser::class);
+        return $this->belongsTo(TypeUser::class, 'type_user_id', 'id');
     }
 
     public function phones(): HasMany

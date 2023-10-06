@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Citie extends Model
@@ -15,9 +16,9 @@ class Citie extends Model
         'name', 'state_id'
     ];
 
-    public function states()
+    public function state(): BelongsTo
     {
-        return $this->belongsTo(State::class);
+        return $this->belongsTo(State::class, 'state_id', 'id');
     }
 
     public function neighborhoods(): HasMany

@@ -18,17 +18,17 @@ class Adress extends Model
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function public_place(): BelongsTo
     {
-        return $this->belongsTo(PublicPlace::class, 'public_place_id');
+        return $this->belongsTo(PublicPlace::class, 'public_place_id', 'id');
     }
 
-    public function neighborhoods(): BelongsTo
+    public function neighborhood(): BelongsTo
     {
-        return $this->belongsTo(Neighborhood::class, 'neighborhood_id');
+        return $this->belongsTo(Neighborhood::class, 'neighborhood_id', 'id');
     }
 
 
